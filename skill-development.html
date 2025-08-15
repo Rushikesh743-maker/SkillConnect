@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Development - SkillConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; background: #f0f8ff; color: #333; scroll-behavior: smooth; }
+
+    header { background: linear-gradient(135deg, #0077b6, #00b4d8); color: white; text-align: center; padding: 5rem 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    header h1 { font-size: 3.2rem; margin: 0; font-weight: 700; }
+    header p { font-size: 1.3rem; margin-top: 1rem; opacity: 0.95; }
+
+    section { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
+    h2 { text-align: center; font-size: 2.4rem; color: #0077b6; margin-bottom: 2rem; position: relative; }
+    h2::after { content: ''; width: 100px; height: 5px; background: #00b4d8; display: block; margin: 0.5rem auto 0; border-radius: 2px; }
+
+    .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+    .card { background: white; border-radius: 15px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); padding: 2rem 1.5rem; text-align: center; transition: transform 0.3s ease, background 0.3s ease; cursor: pointer; position: relative; text-decoration:none; color:inherit; }
+    .card:hover { transform: translateY(-8px); background: #e0f7fa; }
+    .card-icon { font-size: 3rem; margin-bottom: 1rem; color: #0077b6; }
+    .card-title { font-weight: 700; font-size: 1.4rem; margin-bottom: 0.7rem; }
+    .card p { font-size: 1rem; color: #555; }
+
+    .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+    .timeline-step { background: white; border-left: 6px solid #00b4d8; padding: 1.5rem 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); font-size: 1rem; line-height: 1.6; transition: transform 0.3s; }
+    .timeline-step:hover { transform: translateX(5px); }
+
+    @media(max-width:768px){ header h1 { font-size: 2.6rem; } header p { font-size: 1.1rem; } }
+  </style>
+</head>
+<body>
+
+<header data-aos="fade-down">
+  <h1>🚀 Skill Development for Youth</h1>
+  <p>Discover, Learn, and Excel in High-Demand Skills</p>
+</header>
+
+<section data-aos="fade-up">
+  <h2>Popular Skill Areas</h2>
+  <div class="card-container">
+    <a href="https://en.wikipedia.org/wiki/Computer_programming" target="_blank" class="card">
+      <div class="card-icon">💻</div>
+      <div class="card-title">Coding & Programming</div>
+      <p>Learn Python, Java, HTML, CSS, and JavaScript to build real projects.</p>
+    </a>
+    <a href="https://en.wikipedia.org/wiki/Communication" target="_blank" class="card">
+      <div class="card-icon">🗣️</div>
+      <div class="card-title">Communication Skills</div>
+      <p>Enhance public speaking, negotiation, and interpersonal skills.</p>
+    </a>
+    <a href="https://en.wikipedia.org/wiki/Graphic_design" target="_blank" class="card">
+      <div class="card-icon">🎨</div>
+      <div class="card-title">Graphic & UI Design</div>
+      <p>Master Canva, Photoshop, and Figma for creative projects and portfolios.</p>
+    </a>
+    <a href="https://en.wikipedia.org/wiki/Data_analysis" target="_blank" class="card">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Data Analysis</div>
+      <p>Learn to process and interpret data using Excel, SQL, and visualization tools.</p>
+    </a>
+    <a href="https://en.wikipedia.org/wiki/Leadership" target="_blank" class="card">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">Leadership & Management</div>
+      <p>Develop team-leading, decision-making, and project management skills.</p>
+    </a>
+    <a href="https://en.wikipedia.org/wiki/Digital_marketing" target="_blank" class="card">
+      <div class="card-icon">📣</div>
+      <div class="card-title">Digital Marketing</div>
+      <p>Master SEO, social media marketing, and online brand building techniques.</p>
+    </a>
+  </div>
+</section>
+
+<section data-aos="fade-up">
+  <h2>📝 Take a Career Interest Test</h2>
+  <p style="text-align:center; max-width:800px; margin:0 auto 2rem; color:#555;">
+    Discover your strengths and match them with high-demand career paths. Choose a test below to get started!
+  </p>
+  <div class="card-container">
+    <a href="https://www.123test.com/career-test/?utm_source=skillconnect" target="_blank" class="card">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">123 Career Test</div>
+      <p>A quick, visual-based test giving immediate career suggestions based on your preferences.</p>
+    </a>
+    <a href="https://www.princetonreview.com/quiz/career-quiz?utm_source=skillconnect" target="_blank" class="card">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Princeton Review Quiz</div>
+      <p>Matches you with careers based on your responses to statements, using style-based categorization.</p>
+    </a>
+    <a href="https://www.mynextmove.org/explore/ip?utm_source=skillconnect" target="_blank" class="card">
+      <div class="card-icon">💡</div>
+      <div class="card-title">O*NET Interest Profiler</div>
+      <p>Comprehensive assessment linking your interests to real-world career paths.</p>
+    </a>
+  </div>
+</section>
+
+<section class="timeline-section" data-aos="fade-up">
+  <h2>Skill Development Roadmap</h2>
+  <div class="timeline">
+    <div class="timeline-step"><strong>Step 1 - Explore:</strong> Identify interests and take self-assessments.</div>
+    <div class="timeline-step"><strong>Step 2 - Learn:</strong> Enroll in curated courses and tutorials.</div>
+    <div class="timeline-step"><strong>Step 3 - Practice:</strong> Build projects and practice consistently.</div>
+    <div class="timeline-step"><strong>Step 4 - Portfolio:</strong> Showcase your work online.</div>
+    <div class="timeline-step"><strong>Step 5 - Feedback:</strong> Get mentorship and peer reviews.</div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script> AOS.init({ duration:1000, once:true }); </script>
+
+</body>
+</html>
