@@ -13,13 +13,43 @@ SkillConnect is a web-based platform that helps students explore career paths, t
 
 ---
 
-## ⚡ How to Run Locally
-```bash
-git clone https://github.com/your-username/skillconnect.git
-cd skillconnect
+
+---
+
+## 🛠️ How to Run the Project
+1. **Download or Clone the Repository**
+   - Click on the green **Code** button above and choose **Download ZIP**, or  
+   - Run in your terminal:
+     ```bash
+     git clone https://github.com/your-username/skillconnect.git
+     ```
+
+2. **Open the Project**
+   - Locate the `index.html` file in the project folder.
+   - Double-click `index.html` to open it in your browser.  
+
+3. **Optional: Run on a Local Server (Recommended)**
+   - If you have Python installed:
+     ```bash
+     python -m http.server 8000
+     ```
+     Then open [http://localhost:8000](http://localhost:8000) in your browser.
+
+---
+
+## 💡 Technologies Used
+- **HTML5** – Structure
+- **CSS3** – Styling
+- **JavaScript** – Interactivity
+- **Wikipedia Links** – Skill info reference
+
+---
+
+## 👨‍💻 Author
+**Hrushikesh Narake**  
+*Made with ❤️ to inspire and guide students toward their career goals.*
+
 
 
 ---
 
-If you want, I can also **add a GitHub banner image** at the top so your README looks professional and catches attention. That works especially well in competitions.  
-Do you want me to make that next?
