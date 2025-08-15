@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Test - SkillConnect</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f9ff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #48cae4, #0096c7);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-left: 5px solid #0077b6;
+      background: #e0f7fa;
+      border-radius: 8px;
+    }
+    .question p {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: #023e8a;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 0.3rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+    button {
+      background: #0077b6;
+      color: white;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background: #0096c7;
+    }
+    .result {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #e0f7fa;
+      border-left: 5px solid #0077b6;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      color: #023e8a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SkillConnect Career Test</h1>
+    <p>Discover which career path suits you best</p>
+  </header>
+  <div class="content">
+    <form id="careerTest">
+      <!-- 10 Questions -->
+      <div class="question">
+        <p>1. Do you enjoy problem-solving and logical thinking?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="science"> Yes</label>
+          <label><input type="radio" name="q1" value="commerce"> Sometimes</label>
+          <label><input type="radio" name="q1" value="arts"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>2. Are you comfortable working with numbers and finances?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="commerce"> Yes</label>
+          <label><input type="radio" name="q2" value="science"> Sometimes</label>
+          <label><input type="radio" name="q2" value="arts"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>3. Do you enjoy creative arts or design?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="arts"> Yes</label>
+          <label><input type="radio" name="q3" value="science"> Sometimes</label>
+          <label><input type="radio" name="q3" value="commerce"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>4. Do you like conducting experiments or scientific research?</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="science"> Yes</label>
+          <label><input type="radio" name="q4" value="arts"> Sometimes</label>
+          <label><input type="radio" name="q4" value="commerce"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>5. Are you interested in business, marketing, or entrepreneurship?</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="commerce"> Yes</label>
+          <label><input type="radio" name="q5" value="arts"> Sometimes</label>
+          <label><input type="radio" name="q5" value="science"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>6. Do you enjoy reading, writing, or storytelling?</p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="arts"> Yes</label>
+          <label><input type="radio" name="q6" value="commerce"> Sometimes</label>
+          <label><input type="radio" name="q6" value="science"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>7. Are you interested in technology and programming?</p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="science"> Yes</label>
+          <label><input type="radio" name="q7" value="commerce"> Sometimes</label>
+          <label><input type="radio" name="q7" value="arts"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>8. Do you enjoy teamwork and leadership activities?</p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="commerce"> Yes</label>
+          <label><input type="radio" name="q8" value="arts"> Sometimes</label>
+          <label><input type="radio" name="q8" value="science"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>9. Are you passionate about helping others or community service?</p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="arts"> Yes</label>
+          <label><input type="radio" name="q9" value="commerce"> Sometimes</label>
+          <label><input type="radio" name="q9" value="science"> No</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>10. Do you enjoy analyzing data or financial trends?</p>
+        <div class="options">
+          <label><input type="radio" name="q10" value="commerce"> Yes</label>
+          <label><input type="radio" name="q10" value="science"> Sometimes</label>
+          <label><input type="radio" name="q10" value="arts"> No</label>
+        </div>
+      </div>
+      <button type="submit">Submit Test</button>
+    </form>
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+
+  <script>
+    document.getElementById('careerTest').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const answers = new FormData(this);
+      let scores = { science: 0, commerce: 0, arts: 0 };
+      for (let [key, value] of answers.entries()) {
+        scores[value]++;
+      }
+      let maxScore = Math.max(scores.science, scores.commerce, scores.arts);
+      let career = '';
+      if (scores.science === maxScore) career = '🔬 Science Stream: Engineering, Medical, Research';
+      else if (scores.commerce === maxScore) career = '💼 Commerce Stream: Accounting, Banking, Business';
+      else career = '🎨 Arts Stream: Media, Design, Humanities';
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `<strong>Your Recommended Career Path:</strong><br>${career}`;
+      resultDiv.scrollIntoView({behavior: 'smooth'});
+    });
+  </script>
+</body>
+</html>
