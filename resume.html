@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📝 Resume Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #0077b6, #00b4d8);
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .form-section, .preview-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 350px;
+    }
+
+    .form-section h2, .preview-section h2 {
+      color: #0077b6;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.7rem 0 0.3rem;
+      font-weight: 500;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    input[type="file"] {
+      padding: 0.3rem;
+    }
+
+    button {
+      background: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00b4d8;
+    }
+
+    .preview-section {
+      position: relative;
+    }
+
+    .resume-card {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-left: 5px solid #0077b6;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+
+    .resume-card h3 {
+      margin: 0 0 0.5rem;
+      color: #023e8a;
+    }
+
+    .skills-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .skills-badges span {
+      background: #d4f5d4;
+      color: #1e7e34;
+      padding: 0.3rem 0.8rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+
+    .chatbot-box {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #e0f7fa;
+      border-radius: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin: 0.2rem 0.2rem 0 0;
+    }
+    .strength {
+      background-color: #d4f5d4;
+      color: #1e7e34;
+    }
+    .weakness {
+      background-color: #f8d7da;
+      color: #842029;
+    }
+
+    img.photo-preview {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 2px solid #0077b6;
+    }
+
+    @media(max-width: 900px){
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📝 Resume Builder</h1>
+  <p>Create a professional resume and get AI feedback</p>
+</header>
+
+<div class="container">
+
+  <div class="form-section">
+    <h2>Fill Your Details</h2>
+    <label for="photo">Profile Photo</label>
+    <input type="file" id="photo" accept="image/*" onchange="loadPhoto(event)">
+    <img id="photoPreview" class="photo-preview">
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="John Doe">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="you@example.com">
+
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" placeholder="1234567890">
+
+    <label for="linkedin">LinkedIn</label>
+    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username">
+
+    <label for="github">GitHub</label>
+    <input type="url" id="github" placeholder="https://github.com/username">
+
+    <label for="summary">Summary</label>
+    <textarea id="summary" rows="3" placeholder="Short professional summary"></textarea>
+
+    <label for="education">Education</label>
+    <textarea id="education" rows="3"></textarea>
+
+    <label for="experience">Experience</label>
+    <textarea id="experience" rows="3"></textarea>
+
+    <label for="skills">Skills (comma separated)</label>
+    <textarea id="skills" rows="2"></textarea>
+
+    <label for="projects">Projects</label>
+    <textarea id="projects" rows="3"></textarea>
+
+    <label for="certifications">Certifications</label>
+    <textarea id="certifications" rows="2"></textarea>
+
+    <button onclick="generateResume()">Preview Resume</button>
+    <button onclick="window.print()">Download PDF</button>
+  </div>
+
+  <div class="preview-section">
+    <h2>Live Resume Preview</h2>
+    <div id="resumePreview"></div>
+
+    <div class="chatbot-box">
+      <h3>🔍 AI Resume Feedback</h3>
+      <p>Check strengths and improvements for your resume</p>
+      <button onclick="rateResume()">Get Feedback</button>
+      <div id="aiFeedback" style="margin-top:1rem;"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function loadPhoto(event) {
+    const img = document.getElementById('photoPreview');
+    img.src = URL.createObjectURL(event.target.files[0]);
+  }
+
+  function generateResume() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const linkedin = document.getElementById('linkedin').value;
+    const github = document.getElementById('github').value;
+    const summary = document.getElementById('summary').value;
+    const education = document.getElementById('education').value;
+    const experience = document.getElementById('experience').value;
+    const skills = document.getElementById('skills').value.split(',').map(s => s.trim());
+    const projects = document.getElementById('projects').value;
+    const certifications = document.getElementById('certifications').value;
+    const photoSrc = document.getElementById('photoPreview').src;
+
+    const previewDiv = document.getElementById('resumePreview');
+    previewDiv.innerHTML = `
+      <div style="text-align:center;">
+        <img src="${photoSrc}" class="photo-preview"><br>
+        <h2>${name}</h2>
+        <p><strong>Email:</strong> ${email} | <strong>Phone:</strong> ${phone}</p>
+        <p><strong>LinkedIn:</strong> ${linkedin}</p>
+        <p><strong>GitHub:</strong> ${github}</p>
+      </div>
+
+      <div class="resume-card">
+        <h3>Summary</h3><p>${summary}</p>
+      </div>
+      <div class="resume-card">
+        <h3>Education</h3><p>${education}</p>
+      </div>
+      <div class="resume-card">
+        <h3>Experience</h3><p>${experience}</p>
+      </div>
+      <div class="resume-card">
+        <h3>Skills</h3>
+        <div class="skills-badges">
+          ${skills.map(skill => `<span>${skill}</span>`).join('')}
+        </div>
+      </div>
+      <div class="resume-card">
+        <h3>Projects</h3><p>${projects}</p>
+      </div>
+      <div class="resume-card">
+        <h3>Certifications</h3><p>${certifications}</p>
+      </div>
+    `;
+  }
+
+  function rateResume() {
+    const fields = [
+      ['name', 'Add your full name'],
+      ['email', 'Add a valid email'],
+      ['phone', 'Add a valid phone number'],
+      ['summary', 'Improve your summary'],
+      ['education', 'Add education details'],
+      ['experience', 'Add work experience'],
+      ['skills', 'Mention skills'],
+      ['projects', 'Add projects'],
+      ['certifications', 'List certifications']
+    ];
+
+    let strengths = [];
+    let weaknesses = [];
+
+    fields.forEach(([id, msg]) => {
+      const value = document.getElementById(id).value.trim();
+      if(value) strengths.push(id.charAt(0).toUpperCase() + id.slice(1));
+      else weaknesses.push(msg);
+    });
+
+    document.getElementById('aiFeedback').innerHTML = `
+      <div><strong>Strengths:</strong> ${strengths.map(s => `<span class="badge strength">${s}</span>`).join(' ')}</div>
+      <div style="margin-top:0.5rem;"><strong>Improvements:</strong> ${weaknesses.length ? weaknesses.map(w => `<span class="badge weakness">${w}</span>`).join(' ') : '<span style="color:green">None</span>'}</div>
+    `;
+  }
+</script>
+
+</body>
+</html>
