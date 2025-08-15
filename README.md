@@ -46,7 +46,7 @@ SkillConnect is a web-based platform that helps students explore career paths, t
 ---
 
 ## 👨‍💻 Author
-**Hrushikesh Narake**  
+**Rushikesh Narke**  
 *Made with ❤️ to inspire and guide students toward their career goals.*
 
 
