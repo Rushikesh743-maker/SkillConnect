@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Guidance - SkillConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #f5f7fa; color: #333; scroll-behavior: smooth; }
+    header { background: linear-gradient(135deg, #0077b6, #00b4d8); color: white; padding: 3rem 1rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    header h1 { font-size: 3rem; margin: 0; color: white; font-weight: 700; letter-spacing: 1px; }
+    section { max-width: 1200px; margin: auto; padding: 4rem 2rem; }
+    h2 { font-size: 2.4rem; text-align: center; color: #0077b6; margin-bottom: 3rem; position: relative; }
+    h2::after { content: ''; width: 80px; height: 4px; background: #00b4d8; display: block; margin: 0.5rem auto 0; border-radius: 2px; }
+
+    .feature-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; border-top: 4px solid #00b4d8; flex: 1 1 300px; margin: 1rem; display: flex; flex-direction: column; align-items: center; }
+    .feature-card img { width: 80px; height: 80px; margin-bottom: 1rem; }
+    .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .feature-card h3 { color: #0077b6; margin-bottom: 1rem; font-size: 1.5rem; }
+    .feature-card p { font-size: 1.05rem; color: #555; }
+    .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+
+    footer { background: #0077b6; color: white; text-align: center; padding: 3rem 1rem; margin-top: 4rem; }
+    footer a { color: white; font-weight: 600; margin: 0 0.5rem; transition: 0.3s; }
+    footer a:hover { color: #00b4d8; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SkillConnect - AI Guidance 🤖</h1>
+</header>
+
+<section data-aos="fade-up">
+  <h2>Boost Your Career with AI 🚀</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Personalized Career Feedback 📝</h3>
+      <p>AI evaluates your skills, interests, and experience to suggest suitable career paths.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Resume & Cover Letter Suggestions 📄</h3>
+      <p>Get real-time AI feedback to improve your resume and cover letter, highlighting your strengths.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Skill Gap Analysis 🎯</h3>
+      <p>AI identifies skills you need to develop for your target career and recommends relevant courses or projects.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Interview Preparation 🎤</h3>
+      <p>Receive AI-generated mock questions and tips tailored to your chosen field.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Career Trend Insights 📊</h3>
+      <p>AI provides insights on growing industries, in-demand skills, and emerging roles to help you make informed decisions.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Progress Tracking 📈</h3>
+      <p>Track your skill improvement and get suggestions to stay competitive in the job market.</p>
+    </div>
+  </div>
+</section>
+
+<footer data-aos="fade-up">
+  <p>&copy; 2025 SkillConnect. All Rights Reserved.</p>
+  <div>
+    <a href="#" target="_blank">LinkedIn</a> |
+    <a href="#" target="_blank">GitHub</a> |
+    <a href="#" target="_blank">Twitter</a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>
