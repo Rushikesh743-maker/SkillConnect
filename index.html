@@ -6,50 +6,90 @@
   <title>SkillConnect - Career Guidance Hub</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* --- CSS Variables --- */
+    :root {
+      --bg-color: #f5f7fa;
+      --text-color: #333;
+      --header-bg: linear-gradient(135deg, #0077b6, #00b4d8);
+      --feature-bg: white;
+      --feature-border: #00b4d8;
+      --cta-bg: linear-gradient(135deg, #00b4d8, #0077b6);
+      --cta-btn-bg: white;
+      --cta-btn-text: #0077b6;
+      --testimonial-bg: #e0f7fa;
+      --testimonial-border: #0077b6;
+      --footer-bg: #0077b6;
+      --footer-text: white;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --header-bg: linear-gradient(135deg, #1f1f1f, #333333);
+      --feature-bg: #1e1e1e;
+      --feature-border: #00b4d8;
+      --cta-bg: linear-gradient(135deg, #333333, #1f1f1f);
+      --cta-btn-bg: #0077b6;
+      --cta-btn-text: white;
+      --testimonial-bg: #1e1e1e;
+      --testimonial-border: #00b4d8;
+      --footer-bg: #1f1f1f;
+      --footer-text: #e0e0e0;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      background-color: #f5f7fa;
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
     }
+
+    /* --- Navbar --- */
     header {
-      background: linear-gradient(135deg, #0077b6, #00b4d8);
+      background: var(--header-bg);
       color: white;
-      padding: 2rem 1rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      color: white;
-      font-weight: 700;
+    header h1 { font-size: 1.6rem; margin: 0; font-weight: 700; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; }
+    nav a { color: white; margin: 0.5rem 1rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
+    nav a:hover { color: #caf0f8; }
+
+    /* Dark/Light toggle button */
+    #theme-toggle {
+      padding: 0.4rem 1rem; border-radius: 50px; border: none; cursor: pointer;
+      background: #fff; color: #0077b6; font-weight: 600;
+      transition: 0.3s;
     }
+    #theme-toggle:hover { background: #e0f7fa; }
+
+    /* --- Hero Section --- */
     .hero {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 70vh;
-      color: white;
+      height: 60vh;
+      min-height: 300px;
+      max-height: 700px;
       overflow: hidden;
-      border-bottom: 4px solid #00b4d8;
     }
     .hero-slide {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.2rem;
       font-weight: 700;
       color: white;
       opacity: 0;
@@ -57,142 +97,196 @@
       padding: 0 1rem;
     }
     .hero-slide.active { opacity: 1; }
-    .hero-slide .slide-text { padding: 1.5rem 2rem; border-radius: 12px; background: rgba(0,0,0,0); }
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 4rem 2rem;
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
-    h2 {
-      font-size: 2.4rem;
-      text-align: center;
-      color: #0077b6;
-      margin-bottom: 3rem;
+    .hero-slide .slide-text {
       position: relative;
+      z-index: 1;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.3);
+      font-size: 2rem;
+      text-align: center;
     }
-    h2::after {
-      content: '';
-      width: 80px;
-      height: 4px;
+    .hero .cta-btn {
+      position: absolute;
+      bottom: 1rem;
+      z-index: 2;
       background: #00b4d8;
-      display: block;
-      margin: 0.5rem auto 0;
-      border-radius: 2px;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
     }
-    .features { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-    .feature-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); flex: 1 1 300px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; border-top: 4px solid #00b4d8; }
+    .hero .cta-btn:hover { background: #0077b6; transform: translateY(-4px); }
+
+    @media (max-width: 768px) {
+      .hero { height: 50vh; }
+      .hero-slide .slide-text { font-size: 1.5rem; padding: 1rem 1.5rem; }
+      .hero .cta-btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
+    }
+    @media (max-width: 480px) {
+      .hero { height: 40vh; }
+      .hero-slide .slide-text { font-size: 1.2rem; padding: 0.5rem 1rem; }
+      .hero .cta-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+    }
+
+    /* --- Sections --- */
+    section { max-width: 1200px; margin: auto; padding: 4rem 2rem; }
+    h2 { font-size: 2rem; text-align: center; color: #0077b6; margin-bottom: 3rem; position: relative; }
+    h2::after { content: ''; width: 80px; height: 4px; background: #00b4d8; display: block; margin: 0.5rem auto 0; border-radius: 2px; }
+
+    /* --- Features --- */
+    .features { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .feature-card {
+      background: var(--feature-bg); padding: 2rem; border-radius: 15px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer; border-top: 4px solid var(--feature-border);
+    }
     .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    .feature-card h3 { color: #0077b6; margin-bottom: 1rem; font-size: 1.5rem; }
-    .feature-card p { font-size: 1.05rem; color: #555; }
-    .testimonial { background: #e0f7fa; padding: 2rem; border-left: 6px solid #0077b6; border-radius: 15px; box-shadow: 0 10px 28px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s ease; margin-bottom: 2rem; }
+    .feature-card i { font-size: 2rem; margin-bottom: 1rem; color: #00b4d8; }
+
+    /* --- CTA --- */
+    .cta-section {
+      text-align: center; padding: 4rem 2rem; background: var(--cta-bg);
+      color: white; border-radius: 15px; margin: 4rem auto; max-width: 1100px;
+    }
+    .cta-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; justify-items: center; }
+    .cta-buttons a {
+      display: block; width: 100%; text-align: center;
+      background: var(--cta-btn-bg); color: var(--cta-btn-text); padding: 1rem;
+      border-radius: 50px; font-weight: 600; text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .cta-buttons a:hover { transform: translateY(-5px); background: #e0f7fa; }
+
+    /* --- Testimonials --- */
+    .testimonial-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .testimonial {
+      background: var(--testimonial-bg); padding: 2rem; border-left: 6px solid var(--testimonial-border);
+      border-radius: 15px; box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      text-align: center; transition: transform 0.3s ease;
+    }
     .testimonial:hover { transform: translateY(-6px); }
     .testimonial p { font-style: italic; margin-bottom: 1rem; font-size: 1.05rem; }
     .testimonial em { font-weight: bold; color: #0077b6; }
-    footer { background: #0077b6; color: white; text-align: center; padding: 3rem 1rem; margin-top: 4rem; }
-    footer a { color: white; font-weight: 600; margin: 0 0.5rem; transition: 0.3s; }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--footer-bg); color: var(--footer-text); text-align: center; padding: 3rem 1rem; margin-top: 4rem;
+    }
+    footer a { color: var(--footer-text); font-weight: 600; margin: 0 0.5rem; transition: 0.3s; }
     footer a:hover { color: #00b4d8; }
-    .cta-section { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, #00b4d8, #0077b6); color: white; border-radius: 15px; margin: 4rem auto; max-width: 1100px; }
-    .cta-section h2 { color: white; margin-bottom: 2rem; }
-    .cta-buttons a { display: inline-block; background: white; color: #0077b6; padding: 1rem 2rem; margin: 0.5rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.3s ease, background 0.3s ease; }
-    .cta-buttons a:hover { transform: translateY(-5px); background: #e0f7fa; }
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
   <header>
-    <h1>🌟SkillConnect🌟</h1>
+    <h1>🌟 SkillConnect 🌟</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#cta">Get Started</a>
+      <a href="#stories">Stories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme-toggle">🌙 Dark Mode</button>
   </header>
 
+  <!-- Hero -->
   <div class="hero">
-    <div class="hero-slide active" data-bg="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80">
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80" alt="Discover Your Strengths">
       <div class="slide-text">Discover Your Strengths</div>
     </div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1470&q=80">
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1470&q=80" alt="Learn High-Demand Skills">
       <div class="slide-text">Learn High-Demand Skills</div>
     </div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80">
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80" alt="Plan Your Career">
       <div class="slide-text">Plan Your Career</div>
     </div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1470&q=80">
-      <div class="slide-text">Build a Professional Resume</div>
-    </div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1470&q=80">
-      <div class="slide-text">Get AI Guidance for Growth</div>
-    </div>
+    <a href="#cta" class="cta-btn">Start Now</a>
   </div>
 
-  <section data-aos="fade-up">
+  <!-- Features -->
+  <section id="features" data-aos="fade-up">
     <h2>Why Choose SkillConnect?</h2>
     <div class="features">
-      <div class="feature-card">
-        <h3>Personalized Guidance</h3>
-        <p>Tailored recommendations based on your skills and interests.</p>
-      </div>
-      <div class="feature-card">
-        <h3>AI-Powered Insights</h3>
-        <p>Leverage AI to get feedback on your resume and career plans.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Skill-Based Learning</h3>
-        <p>Access curated courses and projects that help you grow in high-demand areas.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Career Mapping</h3>
-        <p>Explore multiple career pathways and industry trends to make informed decisions.</p>
-      </div>
+      <div class="feature-card"><i class="fas fa-user-graduate"></i><h3>Personalized Guidance</h3><p>Tailored recommendations based on your skills and interests.</p></div>
+      <div class="feature-card"><i class="fas fa-robot"></i><h3>AI-Powered Insights</h3><p>Leverage AI to get feedback on your resume and career plans.</p></div>
+      <div class="feature-card"><i class="fas fa-book-open"></i><h3>Skill-Based Learning</h3><p>Access curated courses and projects that help you grow in high-demand areas.</p></div>
+      <div class="feature-card"><i class="fas fa-map-marked-alt"></i><h3>Career Mapping</h3><p>Explore multiple career pathways and industry trends to make informed decisions.</p></div>
     </div>
   </section>
 
-  <section class="cta-section" data-aos="fade-up">
+  <!-- CTA -->
+  <section class="cta-section" id="cta" data-aos="fade-up">
     <h2>Start Your Journey Today</h2>
     <div class="cta-buttons">
-      <a href="skill-development.html">Skill Development</a>
-      <a href="career-paths.html">Career Paths</a>
-      <a href="resume.html">Resume Builder & Analyser</a>
-      <a href="ai.html">AI Guidance</a>
+      <a href="skill-development.html"><i class="fas fa-lightbulb"></i> Skill Development</a>
+      <a href="career-paths.html"><i class="fas fa-route"></i> Career Paths</a>
+      <a href="resume.html"><i class="fas fa-file-alt"></i> Resume Builder</a>
+      <a href="ai.html"><i class="fas fa-brain"></i> AI Guidance</a>
     </div>
   </section>
 
-  <section data-aos="fade-up">
+  <!-- Testimonials -->
+  <section id="stories" data-aos="fade-up">
     <h2>Success Stories</h2>
-    <div class="testimonial">
-      <p>“SkillConnect helped me identify the right career path and land an internship!”</p>
-      <em>– Priya, 18</em>
-    </div>
-    <div class="testimonial">
-      <p>“I gained confidence and practical skills that helped me excel in interviews.”</p>
-      <em>– Aditya, 20</em>
-    </div>
-    <div class="testimonial">
-      <p>“AI suggestions made my resume stand out and get noticed by employers.”</p>
-      <em>– Rohit, 19</em>
+    <div class="testimonial-grid">
+      <div class="testimonial"><p>“SkillConnect helped me identify the right career path and land an internship!”</p><em>– Priya, 18</em></div>
+      <div class="testimonial"><p>“I gained confidence and practical skills that helped me excel in interviews.”</p><em>– Aditya, 20</em></div>
+      <div class="testimonial"><p>“AI suggestions made my resume stand out and get noticed by employers.”</p><em>– Rohit, 19</em></div>
     </div>
   </section>
 
-  <footer data-aos="fade-up">
+  <!-- Footer -->
+  <footer id="contact" data-aos="fade-up">
     <p>&copy; 2025 SkillConnect. All Rights Reserved.</p>
     <div>
-      <a href="#" target="_blank">LinkedIn</a> |
-      <a href="#" target="_blank">GitHub</a> |
-      <a href="#" target="_blank">Twitter</a>
+      <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+      <a href="#"><i class="fab fa-github"></i> GitHub</a> |
+      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
 
+    // Hero slider
     const slides = document.querySelectorAll('.hero-slide');
     let currentSlide = 0;
-
-    slides.forEach(slide => {
-      slide.style.backgroundImage = `url('${slide.getAttribute('data-bg')}')`;
-    });
-
     setInterval(() => {
       slides[currentSlide].classList.remove('active');
       currentSlide = (currentSlide + 1) % slides.length;
       slides[currentSlide].classList.add('active');
     }, 5000);
+
+    // Dark/Light mode toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')){
+        toggleBtn.textContent = '☀️ Light Mode';
+      } else {
+        toggleBtn.textContent = '🌙 Dark Mode';
+      }
+    });
   </script>
 </body>
 </html>
