@@ -21,15 +21,17 @@
     .branch-card { background:white; border-radius:15px; padding:2rem; width:280px; text-align:center; box-shadow:0 12px 28px rgba(0,0,0,0.08); cursor:pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; border-top:4px solid #00b4d8; position:relative; font-size:1.2rem; }
     .branch-card h3 { color:#0077b6; margin-bottom:1rem; font-size:1.5rem; }
     .branch-card p { color:#555; font-size:1rem; margin-bottom:1rem; }
-    .branch-card a { display:inline-block; margin:0.3rem 0.3rem 0 0; padding:0.5rem 1rem; background:#00b4d8; color:white; border-radius:8px; text-decoration:none; font-weight:600; transition:0.3s; }
-    .branch-card a:hover { background:#0077b6; }
     .branch-card:hover { transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
 
-    .details { display:none; background:white; padding:2rem; border-radius:12px; box-shadow:0 12px 28px rgba(0,0,0,0.08); max-width:700px; margin:2rem auto; }
-    .details h4 { color:#0077b6; margin-bottom:1rem; }
-    .details ul { text-align:left; padding-left:1.2rem; color:#555; font-size:0.95rem; }
-    .details a { display:inline-block; margin:0.3rem; padding:0.5rem 1rem; background:#00b4d8; color:white; border-radius:8px; text-decoration:none; font-weight:500; transition:0.3s; }
-    .details a:hover { background:#0077b6; }
+    .details { display:none; background:white; padding:2rem; border-radius:12px; box-shadow:0 12px 28px rgba(0,0,0,0.08); max-width:900px; margin:2rem auto; }
+    .details h4 { color:#0077b6; margin-bottom:1.5rem; text-align:center; font-size:1.6rem; }
+
+    .career-options { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1.5rem; margin-top:1.5rem; }
+    .career-card { background:#f9fbfd; border:1px solid #e0f0f5; border-radius:12px; padding:1.5rem; text-align:center; transition:0.3s; }
+    .career-card:hover { background:#eaf8fc; border-color:#00b4d8; transform: translateY(-5px);}
+    .career-card h5 { font-size:1.2rem; color:#0077b6; margin-bottom:1rem; }
+    .career-card a { display:block; margin:0.4rem auto; padding:0.6rem 1rem; background:#00b4d8; color:white; border-radius:8px; text-decoration:none; font-weight:500; transition:0.3s; width:80%; }
+    .career-card a:hover { background:#0077b6; }
 
     .cta-section { background: linear-gradient(135deg,#0077b6,#00b4d8); color:white; text-align:center; padding:3rem 2rem; border-radius:15px; margin-top:4rem; }
     .cta-section h3 { font-size:2rem; margin-bottom:2rem; }
@@ -71,37 +73,70 @@
 
   </div>
 
+  <!-- Science Details -->
   <div id="scienceDetails" class="details">
-    <h4>Science Stream Details</h4>
-    <ul>
-      <li>Explore Engineering and Technology</li>
-      <li>Pursue Medicine and Healthcare</li>
-      <li>Engage in Research and Innovation</li>
-    </ul>
-    <a href="https://www.topuniversities.com/courses/engineering/guide" target="_blank">Explore Engineering</a>
-    <a href="https://www.ama-assn.org/" target="_blank">Explore Medicine</a>
+    <h4>Science Stream Options</h4>
+    <div class="career-options">
+      <div class="career-card">
+        <h5>Engineering</h5>
+        <a href="https://www.topuniversities.com/courses/engineering/guide" target="_blank">About Engineering</a>
+        <a href="https://www.collegedekho.com/engineering-colleges/" target="_blank">Best Colleges</a>
+      </div>
+      <div class="career-card">
+        <h5>Medicine</h5>
+        <a href="https://www.ama-assn.org/" target="_blank">About Medicine</a>
+        <a href="https://www.collegedekho.com/medical-colleges/" target="_blank">Best Colleges</a>
+      </div>
+      <div class="career-card">
+        <h5>Research & Innovation</h5>
+        <a href="https://www.nature.com/careers" target="_blank">About Research</a>
+        <a href="https://www.collegedekho.com/science-colleges/" target="_blank">Best Colleges</a>
+      </div>
+    </div>
   </div>
 
+  <!-- Commerce Details -->
   <div id="commerceDetails" class="details">
-    <h4>Commerce Stream Details</h4>
-    <ul>
-      <li>Careers in Accounting and Finance</li>
-      <li>Banking and Investment Opportunities</li>
-      <li>Entrepreneurship and Business Ventures</li>
-    </ul>
-    <a href="https://www.accounting.com/careers/" target="_blank">Accounting Careers</a>
-    <a href="https://www.investopedia.com/financial-career-options-5189894" target="_blank">Banking Options</a>
+    <h4>Commerce Stream Options</h4>
+    <div class="career-options">
+      <div class="career-card">
+        <h5>Accounting & Finance</h5>
+        <a href="https://www.accounting.com/careers/" target="_blank">About Accounting</a>
+        <a href="https://www.collegedekho.com/commerce-colleges/" target="_blank">Best Colleges</a>
+      </div>
+      <div class="career-card">
+        <h5>Banking & Investment</h5>
+        <a href="https://www.investopedia.com/financial-career-options-5189894" target="_blank">About Banking</a>
+        <a href="https://www.collegedekho.com/banking-finance-colleges/" target="_blank">Best Colleges</a>
+      </div>
+      <div class="career-card">
+        <h5>Business & Entrepreneurship</h5>
+        <a href="https://www.entrepreneur.com/" target="_blank">About Entrepreneurship</a>
+        <a href="https://www.collegedekho.com/mba-colleges/" target="_blank">Best Colleges</a>
+      </div>
+    </div>
   </div>
 
+  <!-- Arts Details -->
   <div id="artsDetails" class="details">
-    <h4>Arts Stream Details</h4>
-    <ul>
-      <li>Media, Journalism, and Communication</li>
-      <li>Law and Humanities Careers</li>
-      <li>Design, Creativity, and Innovation</li>
-    </ul>
-    <a href="https://www.theladders.com/career-advice/career-options-in-humanities" target="_blank">Arts Careers</a>
-    <a href="https://www.collegechoice.net/arts/design/" target="_blank">Design Careers</a>
+    <h4>Arts Stream Options</h4>
+    <div class="career-options">
+      <div class="career-card">
+        <h5>Media & Journalism</h5>
+        <a href="https://www.careers360.com/courses/media-journalism-course" target="_blank">About Journalism</a>
+        <a href="https://www.collegedekho.com/media-mass-communication-colleges/" target="_blank">Best Colleges</a>
+      </div>
+      <div class="career-card">
+        <h5>Law & Humanities</h5>
+        <a href="https://www.lsac.org/" target="_blank">About Law</a>
+        <a href="https://www.collegedekho.com/law-colleges/" target="_blank">Best Colleges</a>
+      </div>
+      <div class="career-card">
+        <h5>Design & Creativity</h5>
+        <a href="https://www.collegechoice.net/arts/design/" target="_blank">About Design</a>
+        <a href="https://www.collegedekho.com/design-colleges/" target="_blank">Best Colleges</a>
+      </div>
+    </div>
   </div>
 
 </section>
