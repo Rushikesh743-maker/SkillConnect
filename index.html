@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,6 +51,9 @@
 
     /* --- Navbar --- */
     header {
+      flex-direction: column;
+      /* Stack elements on small screens */
+      align-items: center;
       background: var(--header-bg);
       color: white;
       padding: 1rem 2rem;
@@ -60,33 +64,79 @@
       top: 0;
       z-index: 1000;
       flex-wrap: wrap;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    header h1 { font-size: 1.6rem; margin: 0; font-weight: 700; }
-    nav { display: flex; flex-wrap: wrap; justify-content: center; }
-    nav a { color: white; margin: 0.5rem 1rem; font-weight: 500; text-decoration: none; transition: color 0.3s; }
-    nav a:hover { color: #caf0f8; }
+
+    header h1 {
+      font-size: 1.6rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: column;
+      /* Stack nav links vertically */
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      margin: 0.25rem 0.5rem;
+      color: white;
+      margin: 0.5rem 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #caf0f8;
+    }
 
     /* Dark/Light toggle button */
     #theme-toggle {
-      padding: 0.4rem 1rem; border-radius: 50px; border: none; cursor: pointer;
-      background: #fff; color: #0077b6; font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      background: #fff;
+      color: #0077b6;
+      font-weight: 600;
       transition: 0.3s;
     }
-    #theme-toggle:hover { background: #e0f7fa; }
+
+    #theme-toggle:hover {
+      background: #e0f7fa;
+    }
 
     /* --- Hero Section --- */
     .hero {
+      height: 50vh;
+      /* Reduce height on mobile */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       position: relative;
       height: 60vh;
       min-height: 300px;
       max-height: 700px;
       overflow: hidden;
     }
+
     .hero-slide {
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      max-width: 90%;
+      margin: auto;
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -96,7 +146,11 @@
       transition: opacity 1s ease-in-out;
       padding: 0 1rem;
     }
-    .hero-slide.active { opacity: 1; }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
     .hero-slide img {
       width: 100%;
       height: 100%;
@@ -107,18 +161,20 @@
       left: 0;
       z-index: 0;
     }
+
     .hero-slide .slide-text {
       position: relative;
       z-index: 1;
       padding: 1rem 2rem;
       border-radius: 12px;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0, 0, 0, 0.3);
       font-size: 2rem;
       text-align: center;
     }
+
     .hero .cta-btn {
       position: absolute;
-      bottom: 1rem;
+      bottom: 2rem;
       z-index: 2;
       background: #00b4d8;
       color: white;
@@ -128,68 +184,188 @@
       font-weight: 600;
       transition: 0.3s;
     }
-    .hero .cta-btn:hover { background: #0077b6; transform: translateY(-4px); }
+
+    .hero .cta-btn:hover {
+      background: #0077b6;
+      transform: translateY(-4px);
+    }
 
     @media (max-width: 768px) {
-      .hero { height: 50vh; }
-      .hero-slide .slide-text { font-size: 1.5rem; padding: 1rem 1.5rem; }
-      .hero .cta-btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
+      .hero {
+        height: 50vh;
+      }
+
+      .hero-slide .slide-text {
+        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+      }
+
+      .hero .cta-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+      }
     }
+
     @media (max-width: 480px) {
-      .hero { height: 40vh; }
-      .hero-slide .slide-text { font-size: 1.2rem; padding: 0.5rem 1rem; }
-      .hero .cta-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+      .hero {
+        height: 40vh;
+      }
+
+      .hero-slide .slide-text {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .hero .cta-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
     }
 
     /* --- Sections --- */
-    section { max-width: 1200px; margin: auto; padding: 4rem 2rem; }
-    h2 { font-size: 2rem; text-align: center; color: #0077b6; margin-bottom: 3rem; position: relative; }
-    h2::after { content: ''; width: 80px; height: 4px; background: #00b4d8; display: block; margin: 0.5rem auto 0; border-radius: 2px; }
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      color: #0077b6;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #00b4d8;
+      display: block;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
 
     /* --- Features --- */
-    .features { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .feature-card {
-      background: var(--feature-bg); padding: 2rem; border-radius: 15px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-      text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer; border-top: 4px solid var(--feature-border);
+    .features {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    .feature-card i { font-size: 2rem; margin-bottom: 1rem; color: #00b4d8; }
+
+    .feature-card {
+      background: var(--feature-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border-top: 4px solid var(--feature-border);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00b4d8;
+    }
 
     /* --- CTA --- */
     .cta-section {
-      text-align: center; padding: 4rem 2rem; background: var(--cta-bg);
-      color: white; border-radius: 15px; margin: 4rem auto; max-width: 1100px;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--cta-bg);
+      color: white;
+      border-radius: 15px;
+      margin: 4rem auto;
+      max-width: 1100px;
     }
-    .cta-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; justify-items: center; }
+
+    .cta-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      justify-items: center;
+    }
+
     .cta-buttons a {
-      display: block; width: 100%; text-align: center;
-      background: var(--cta-btn-bg); color: var(--cta-btn-text); padding: 1rem;
-      border-radius: 50px; font-weight: 600; text-decoration: none;
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--cta-btn-bg);
+      color: var(--cta-btn-text);
+      padding: 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
       transition: transform 0.3s ease, background 0.3s ease;
     }
-    .cta-buttons a:hover { transform: translateY(-5px); background: #e0f7fa; }
+
+    .cta-buttons a:hover {
+      transform: translateY(-5px);
+      background: #e0f7fa;
+    }
 
     /* --- Testimonials --- */
-    .testimonial-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .testimonial {
-      background: var(--testimonial-bg); padding: 2rem; border-left: 6px solid var(--testimonial-border);
-      border-radius: 15px; box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-      text-align: center; transition: transform 0.3s ease;
+    .testimonial-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-    .testimonial:hover { transform: translateY(-6px); }
-    .testimonial p { font-style: italic; margin-bottom: 1rem; font-size: 1.05rem; }
-    .testimonial em { font-weight: bold; color: #0077b6; }
+
+    .testimonial {
+      background: var(--testimonial-bg);
+      padding: 2rem;
+      border-left: 6px solid var(--testimonial-border);
+      border-radius: 15px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-6px);
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .testimonial em {
+      font-weight: bold;
+      color: #0077b6;
+    }
 
     /* --- Footer --- */
     footer {
-      background: var(--footer-bg); color: var(--footer-text); text-align: center; padding: 3rem 1rem; margin-top: 4rem;
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
     }
-    footer a { color: var(--footer-text); font-weight: 600; margin: 0 0.5rem; transition: 0.3s; }
-    footer a:hover { color: #00b4d8; }
+
+    footer a {
+      color: var(--footer-text);
+      font-weight: 600;
+      margin: 0 0.5rem;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #00b4d8;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -207,15 +383,18 @@
   <!-- Hero -->
   <div class="hero">
     <div class="hero-slide active">
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80" alt="Discover Your Strengths">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80"
+        alt="Discover Your Strengths">
       <div class="slide-text">Discover Your Strengths</div>
     </div>
     <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1470&q=80" alt="Learn High-Demand Skills">
+      <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1470&q=80"
+        alt="Learn High-Demand Skills">
       <div class="slide-text">Learn High-Demand Skills</div>
     </div>
     <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80" alt="Plan Your Career">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80"
+        alt="Plan Your Career">
       <div class="slide-text">Plan Your Career</div>
     </div>
     <a href="#cta" class="cta-btn">Start Now</a>
@@ -225,10 +404,22 @@
   <section id="features" data-aos="fade-up">
     <h2>Why Choose SkillConnect?</h2>
     <div class="features">
-      <div class="feature-card"><i class="fas fa-user-graduate"></i><h3>Personalized Guidance</h3><p>Tailored recommendations based on your skills and interests.</p></div>
-      <div class="feature-card"><i class="fas fa-robot"></i><h3>AI-Powered Insights</h3><p>Leverage AI to get feedback on your resume and career plans.</p></div>
-      <div class="feature-card"><i class="fas fa-book-open"></i><h3>Skill-Based Learning</h3><p>Access curated courses and projects that help you grow in high-demand areas.</p></div>
-      <div class="feature-card"><i class="fas fa-map-marked-alt"></i><h3>Career Mapping</h3><p>Explore multiple career pathways and industry trends to make informed decisions.</p></div>
+      <div class="feature-card"><i class="fas fa-user-graduate"></i>
+        <h3>Personalized Guidance</h3>
+        <p>Tailored recommendations based on your skills and interests.</p>
+      </div>
+      <div class="feature-card"><i class="fas fa-robot"></i>
+        <h3>AI-Powered Insights</h3>
+        <p>Leverage AI to get feedback on your resume and career plans.</p>
+      </div>
+      <div class="feature-card"><i class="fas fa-book-open"></i>
+        <h3>Skill-Based Learning</h3>
+        <p>Access curated courses and projects that help you grow in high-demand areas.</p>
+      </div>
+      <div class="feature-card"><i class="fas fa-map-marked-alt"></i>
+        <h3>Career Mapping</h3>
+        <p>Explore multiple career pathways and industry trends to make informed decisions.</p>
+      </div>
     </div>
   </section>
 
@@ -247,9 +438,15 @@
   <section id="stories" data-aos="fade-up">
     <h2>Success Stories</h2>
     <div class="testimonial-grid">
-      <div class="testimonial"><p>“SkillConnect helped me identify the right career path and land an internship!”</p><em>– Priya, 18</em></div>
-      <div class="testimonial"><p>“I gained confidence and practical skills that helped me excel in interviews.”</p><em>– Aditya, 20</em></div>
-      <div class="testimonial"><p>“AI suggestions made my resume stand out and get noticed by employers.”</p><em>– Rohit, 19</em></div>
+      <div class="testimonial">
+        <p>“SkillConnect helped me identify the right career path and land an internship!”</p><em>– Priya, 18</em>
+      </div>
+      <div class="testimonial">
+        <p>“I gained confidence and practical skills that helped me excel in interviews.”</p><em>– Aditya, 20</em>
+      </div>
+      <div class="testimonial">
+        <p>“AI suggestions made my resume stand out and get noticed by employers.”</p><em>– Rohit, 19</em>
+      </div>
     </div>
   </section>
 
@@ -281,7 +478,7 @@
     const toggleBtn = document.getElementById('theme-toggle');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      if(document.body.classList.contains('dark-mode')){
+      if (document.body.classList.contains('dark-mode')) {
         toggleBtn.textContent = '☀️ Light Mode';
       } else {
         toggleBtn.textContent = '🌙 Dark Mode';
@@ -289,4 +486,5 @@
     });
   </script>
 </body>
+
 </html>
